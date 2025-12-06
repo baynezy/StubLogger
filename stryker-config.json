@@ -1,0 +1,20 @@
+{
+    "stryker-config": {
+        "solution": "StubLogger.sln",
+        "project": "StubLogger.csproj",
+        "thresholds": {
+            "high": 95,
+            "low": 85,
+            "break": 80
+        },
+        "since": {
+            "target": "develop",
+            "ignore-changes-in": [
+                "**/*.md",
+                "**/*.yml",
+                "**/*.json",
+                "**/*.txt"
+            ]
+        }
+    }
+}

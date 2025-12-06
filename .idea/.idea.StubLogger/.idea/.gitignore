@@ -13,3 +13,9 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+## aws
+aws.xml
+
+## copilot
+copilot.data.*
