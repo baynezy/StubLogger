@@ -10,4 +10,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - GitHub Label Management workflow (#1)
-- Add project structure and initial files (#3)
+- Project structure and initial files (#3)
+- CI/CD pipeline setup (#8)
