@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- NuGet metadata to csproj (#22)
+
 ### Changed
 
 - Updated permissions on completed issue workflow to include `issues: write` and `pull-requests: read` (#17)
