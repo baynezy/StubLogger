@@ -16,6 +16,7 @@ on:
 permissions:
   checks: write
   pull-requests: write
+  contents: write
 
 jobs:
   get-version:

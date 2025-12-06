@@ -5,6 +5,9 @@ on:
         required: true
         description: 'Version to deploy'
         type: string
+
+permissions:
+  contents: write
   
 jobs:
   tag:
