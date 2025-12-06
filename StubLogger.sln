@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1E9CDDB-77A0-44A6-89A2-13BA28920465}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		semver.json = semver.json
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		.gitmessage = .gitmessage
+		build.cake = build.cake
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3CCA5E9B-F59A-44D6-B0E9-A0F80503E2A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8D5677BA-AC6A-4F6A-8B3A-09A9CD6A08D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StubLogger", "src\StubLogger\StubLogger.csproj", "{D1040056-4950-4796-82C2-F75D5BA34F04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StubLogger.UnitTests", "test\StubLogger.UnitTests\StubLogger.UnitTests.csproj", "{981747FA-2C51-467B-B197-A31478A72CB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D1040056-4950-4796-82C2-F75D5BA34F04} = {3CCA5E9B-F59A-44D6-B0E9-A0F80503E2A1}
+		{981747FA-2C51-467B-B197-A31478A72CB2} = {8D5677BA-AC6A-4F6A-8B3A-09A9CD6A08D6}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1040056-4950-4796-82C2-F75D5BA34F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1040056-4950-4796-82C2-F75D5BA34F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1040056-4950-4796-82C2-F75D5BA34F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1040056-4950-4796-82C2-F75D5BA34F04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{981747FA-2C51-467B-B197-A31478A72CB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{981747FA-2C51-467B-B197-A31478A72CB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{981747FA-2C51-467B-B197-A31478A72CB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{981747FA-2C51-467B-B197-A31478A72CB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
