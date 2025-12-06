@@ -4,6 +4,13 @@
         <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Authors>Simon Baynes</Authors>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/baynezy/SubLogger</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <Description>An ILogger implementation that allows enables testing and assertion of logging</Description>
+        <Copyright>© Simon Baynes 2025</Copyright>
+        <PackageTags>xUnit;Logging;Testing</PackageTags>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 
