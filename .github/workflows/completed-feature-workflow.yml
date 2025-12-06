@@ -5,6 +5,10 @@ on:
     branches: [ develop ]
     types: [closed]
 
+permissions:
+  issues: write
+  pull-requests: read
+
 jobs:
   update-merged-issue-issues:
     if: github.event.pull_request.merged_by != '' && github.actor != 'dependabot[bot]' && startsWith(github.head_ref, 'feature/issue-')

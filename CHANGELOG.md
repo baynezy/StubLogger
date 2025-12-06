@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Updated permissions on completed issue workflow to include `issues: write` and `pull-requests: read` (#17)
+- Missing permissions in tag release workflow (#20)
+
+## [1.0.0.2] - 2025-12-06
+
 ### Added
 
 - GitHub Label Management workflow (#1)
@@ -18,4 +25,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Bug in release workflow permissions (#14)
-- Missing permissions in tag release workflow (#20)
+
+[unreleased]: https://github.com/baynezy/StubLogger/compare/1.0.0.2...HEAD
+[1.0.0.2]: https://github.com/baynezy/StubLogger/compare/4f6b6f73e69cd2384e2349cfed5924038070f236...1.0.0.2
