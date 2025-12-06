@@ -18,3 +18,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Bug in release workflow permissions (#14)
+- Missing permissions in tag release workflow (#20)
