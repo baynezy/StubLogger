@@ -114,4 +114,90 @@ public class StubLoggerTests
         actionWarning.Should()
             .Throw<XunitException>();
     }
+
+    [Theory]
+    [MemberData(nameof(LogLevelTrace))]
+    public void IsEnabled_WhenCalledConfiguredToTrace_ThenReturnsTrueForTraceOrLower(LogLevel level, bool expected)
+    {
+        AssertIsEnabledLogLevels(LogLevel.Trace, level, expected);
+    }
+
+    [Theory]
+    [MemberData(nameof(LogLevelDebug))]
+    public void IsEnabled_WhenCalledConfiguredToDebug_ThenReturnsTrueForTraceOrLower(LogLevel level, bool expected)
+    {
+        AssertIsEnabledLogLevels(LogLevel.Debug, level, expected);
+    }
+
+    [Theory]
+    [MemberData(nameof(LogLevelInformation))]
+    public void IsEnabled_WhenCalledConfiguredToInformation_ThenReturnsTrueForInformationOrLower(LogLevel level,
+        bool expected)
+    {
+        AssertIsEnabledLogLevels(LogLevel.Information, level, expected);
+    }
+
+    [Theory]
+    [MemberData(nameof(LogLevelWarning))]
+    public void IsEnabled_WhenCalledConfiguredToWarning_ThenReturnsTrueForInformationOrLower(LogLevel level,
+        bool expected)
+    {
+        AssertIsEnabledLogLevels(LogLevel.Warning, level, expected);
+    }
+
+    [Theory]
+    [MemberData(nameof(LogLevelError))]
+    public void IsEnabled_WhenCalledConfiguredToError_ThenReturnsTrueForInformationOrLower(LogLevel level,
+        bool expected)
+    {
+        AssertIsEnabledLogLevels(LogLevel.Error, level, expected);
+    }
+
+    [Theory]
+    [MemberData(nameof(LogLevelCritical))]
+    public void IsEnabled_WhenCalledConfiguredToCritical_ThenReturnsTrueForInformationOrLower(LogLevel level,
+        bool expected)
+    {
+        AssertIsEnabledLogLevels(LogLevel.Critical, level, expected);
+    }
+
+    [Theory]
+    [MemberData(nameof(LogLevelNone))]
+    public void IsEnabled_WhenCalledConfiguredToNone_ThenReturnsTrueForInformationOrLower(LogLevel level, bool expected)
+    {
+        AssertIsEnabledLogLevels(LogLevel.None, level, expected);
+    }
+
+    private void AssertIsEnabledLogLevels(LogLevel configureLevel, LogLevel testLevel, bool expected)
+    {
+        // arrange
+        _sut.LoggerLogLevel = configureLevel;
+
+        // act
+        var isEnabled = _sut.IsEnabled(testLevel);
+
+        // assert
+        isEnabled.Should()
+            .Be(expected, $"IsEnabled should be {expected} for {testLevel}");
+    }
+
+    public static TheoryData<LogLevel, bool> LogLevelTrace => LogLevelExpectations(LogLevel.Trace);
+    public static TheoryData<LogLevel, bool> LogLevelDebug => LogLevelExpectations(LogLevel.Debug);
+    public static TheoryData<LogLevel, bool> LogLevelInformation => LogLevelExpectations(LogLevel.Information);
+    public static TheoryData<LogLevel, bool> LogLevelWarning => LogLevelExpectations(LogLevel.Warning);
+    public static TheoryData<LogLevel, bool> LogLevelError => LogLevelExpectations(LogLevel.Error);
+    public static TheoryData<LogLevel, bool> LogLevelCritical => LogLevelExpectations(LogLevel.Critical);
+    public static TheoryData<LogLevel, bool> LogLevelNone => LogLevelExpectations(LogLevel.None);
+
+    private static TheoryData<LogLevel, bool> LogLevelExpectations(LogLevel expectation)
+    {
+        var data = new TheoryData<LogLevel, bool>();
+        foreach (var level in Enum.GetValues<LogLevel>())
+        {
+            var expected = (int) level <= (int) expectation;
+            data.Add(level, expected);
+        }
+
+        return data;
+    }
 }

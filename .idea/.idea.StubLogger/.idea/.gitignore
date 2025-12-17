@@ -19,3 +19,6 @@ aws.xml
 
 ## copilot
 copilot.data.*
+
+## SonarLint
+sonarlint.xml

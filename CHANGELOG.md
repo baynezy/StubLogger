@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - NuGet badge to README showing latest package version (#28)
+- Support for controlling LogLevel for tests (#13)
 
 ## [1.0.1.3] - 2025-12-06
 
