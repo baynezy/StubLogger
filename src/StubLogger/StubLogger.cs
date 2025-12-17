@@ -10,6 +10,11 @@ namespace StubLogger;
 public class StubLogger<T> : ILogger<T>
 {
     private readonly List<TrackedLogEvent> _tracker = [];
+    
+    /// <summary>
+    /// The log level threshold for tracking log events.
+    /// </summary>
+    public LogLevel LoggerLogLevel { get; set; } = LogLevel.Information;
 
     /// <inheritdoc/>
     public void Log<TState>(
@@ -24,10 +29,7 @@ public class StubLogger<T> : ILogger<T>
     }
 
     /// <inheritdoc/>
-    public bool IsEnabled(LogLevel logLevel)
-    {
-        throw new NotImplementedException();
-    }
+    public bool IsEnabled(LogLevel logLevel) => logLevel <= LoggerLogLevel;
 
     /// <inheritdoc/>
     public IDisposable? BeginScope<TState>(TState state) where TState : notnull

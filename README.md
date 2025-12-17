@@ -1,5 +1,7 @@
 # StubLogger
 
+[![NuGet](https://img.shields.io/nuget/v/StubLogger.svg)](https://www.nuget.org/packages/StubLogger/)
+
 A lightweight stub logger for unit testing with xUnit that tracks and asserts
 log events in .NET applications.
 
