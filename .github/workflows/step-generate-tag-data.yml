@@ -1,0 +1,32 @@
+﻿name: Generate Tagging Parameters
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        description: 'Version to deploy'
+        type: string
+      checkout-ref:
+        required: true
+        description: 'The git ref to checkout'
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  generate-tag-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Text File with Tagging Parameters
+        env:
+          VERSION: ${{ inputs.version }}
+          CHECKOUT_REF: ${{ inputs.checkout-ref }}
+        run: |
+          echo "version=$VERSION" >> tag-parameters.txt
+          echo "checkout-ref=$CHECKOUT_REF" >> tag-parameters.txt
+      - name: Upload Tagging Parameters Artifact
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        with:
+          name: tag-parameters
+          path: ./tag-parameters.txt

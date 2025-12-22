@@ -1,0 +1,34 @@
+﻿name: Tag Repository
+on:
+  workflow_run:
+    workflows:
+      - "Deploy Develop Branch"
+      - "Deploy Master Branch"
+    types:
+      - completed
+        
+permissions:
+  contents: write
+    
+jobs:
+  download-tag-data:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Download Tag Data Artifact
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        with:
+          name: tag-parameters
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Read Tag Data
+        id: read-tag-data
+        run: |
+          cat tag-parameters.txt >> $GITHUB_ENV
+  
+  tag-repo:
+    uses: ./.github/workflows/step-tag-release.yml
+    needs: [ download-tag-data ]
+    with: 
+      version: ${{ env.version }}
+      checkout-ref: ${{ env.checkout-ref }}
