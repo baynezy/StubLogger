@@ -2,8 +2,8 @@
 on:
   workflow_run:
     workflows:
-      - "Deploy Develop Branch"
-      - "Deploy Master Branch"
+      - Deploy Develop Branch
+      - Deploy Master Branch
     types:
       - completed
         
