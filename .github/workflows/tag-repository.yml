@@ -14,6 +14,9 @@ jobs:
   download-tag-data:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    outputs:
+      version: ${{ steps.read-tag-data.outputs.version }}
+      checkout-ref: ${{ steps.read-tag-data.outputs.checkout-ref }}
     steps:
       - name: Download Tag Data Artifact
         uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
@@ -24,11 +27,12 @@ jobs:
       - name: Read Tag Data
         id: read-tag-data
         run: |
-          cat tag-parameters.txt >> $GITHUB_ENV
+          echo "version=$(grep '^version=' tag-parameters.txt | cut -d'=' -f2-)" >> $GITHUB_OUTPUT
+          echo "checkout-ref=$(grep '^checkout-ref=' tag-parameters.txt | cut -d'=' -f2-)" >> $GITHUB_OUTPUT
   
   tag-repo:
     uses: ./.github/workflows/step-tag-release.yml
     needs: [ download-tag-data ]
     with: 
-      version: ${{ env.version }}
-      checkout-ref: ${{ env.checkout-ref }}
+      version: ${{ needs.download-tag-data.outputs.version }}
+      checkout-ref: ${{ needs.download-tag-data.outputs.checkout-ref }}
