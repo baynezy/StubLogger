@@ -32,7 +32,8 @@ public class StubLoggerTests
 
         // assert
         action.Should()
-            .Throw<NotNullException>();
+            .Throw<TrueException>()
+            .WithMessage("Log event matching the predicate was not found");
     }
 
     [Fact]
@@ -109,10 +110,10 @@ public class StubLoggerTests
 
         // assert
         actionInfo.Should()
-            .Throw<XunitException>();
+            .Throw<EqualException>();
 
         actionWarning.Should()
-            .Throw<XunitException>();
+            .Throw<EqualException>();
     }
 
     [Theory]

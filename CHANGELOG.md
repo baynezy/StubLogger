@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0.6] - 2026-02-08
+
+### Changed
+
+- When failing to match a log event the error message is more descriptive (#64)
+
 ## [1.1.2.7] - 2026-02-08
 
 ### Fixed
@@ -55,7 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bug in release workflow permissions (#14)
 
-[unreleased]: https://github.com/baynezy/StubLogger/compare/1.1.2.7...HEAD
+[unreleased]: https://github.com/baynezy/StubLogger/compare/2.0.0.6...HEAD
+[2.0.0.6]: https://github.com/baynezy/StubLogger/compare/1.1.2.7...2.0.0.6
 [1.1.2.7]: https://github.com/baynezy/StubLogger/compare/1.1.1.5...1.1.2.7
 [1.1.1.5]: https://github.com/baynezy/StubLogger/compare/1.1.0.4...1.1.1.5
 [1.1.0.4]: https://github.com/baynezy/StubLogger/compare/1.0.1.3...1.1.0.4

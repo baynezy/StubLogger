@@ -10,7 +10,7 @@ namespace StubLogger;
 public class StubLogger<T> : ILogger<T>
 {
     private readonly List<TrackedLogEvent> _tracker = [];
-    
+
     /// <summary>
     /// The log level threshold for tracking log events.
     /// </summary>
@@ -45,7 +45,10 @@ public class StubLogger<T> : ILogger<T>
     public void AssertLogEvent(Func<TrackedLogEvent, bool> predicate, Action<TrackedLogEvent>? assertion = null)
     {
         var tracked = _tracker.FirstOrDefault(predicate);
-        Assert.NotNull(tracked);
+        Assert.True(
+            tracked is not null,
+            "Log event matching the predicate was not found"
+        );
 
         assertion?.Invoke(tracked);
     }
