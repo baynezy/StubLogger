@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1.5] - 2026-02-08
+
 ### Fixed
 
 - Git Tagging workflow that has been broken by GitHub security updates (#47)
@@ -47,7 +49,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bug in release workflow permissions (#14)
 
-[unreleased]: https://github.com/baynezy/StubLogger/compare/1.1.0.4...HEAD
+[unreleased]: https://github.com/baynezy/StubLogger/compare/1.1.1.5...HEAD
+[1.1.1.5]: https://github.com/baynezy/StubLogger/compare/1.1.0.4...1.1.1.5
 [1.1.0.4]: https://github.com/baynezy/StubLogger/compare/1.0.1.3...1.1.0.4
 [1.0.1.3]: https://github.com/baynezy/StubLogger/compare/1.0.0.2...1.0.1.3
 [1.0.0.2]: https://github.com/baynezy/StubLogger/compare/4f6b6f73e69cd2384e2349cfed5924038070f236...1.0.0.2
