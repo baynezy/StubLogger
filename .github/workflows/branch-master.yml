@@ -34,11 +34,14 @@ jobs:
       deploy-branch: ${{ github.base_ref }}
       version: ${{ needs.get-version.outputs.version }}
   
-  tag-release:
+  generate-data-for-tagging:
     needs: [ get-version,publish-to-nuget ]
-    uses: ./.github/workflows/step-tag-release.yml
+    uses: ./.github/workflows/step-generate-tag-data.yml
     with:
       version: ${{ needs.get-version.outputs.version }}
+      checkout-ref: ${{ github.base_ref }}
+    permissions:
+      contents: write
   
   merge-master-to-develop:
     needs: [ publish-to-nuget ]
