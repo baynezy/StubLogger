@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.2.7] - 2026-02-08
+
+### Fixed
+
+- Issue where IsEnabled was returning the opposite of what is should be (#67) 
+
 ## [1.1.1.5] - 2026-02-08
 
 ### Fixed
@@ -49,7 +55,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bug in release workflow permissions (#14)
 
-[unreleased]: https://github.com/baynezy/StubLogger/compare/1.1.1.5...HEAD
+[unreleased]: https://github.com/baynezy/StubLogger/compare/1.1.2.7...HEAD
+[1.1.2.7]: https://github.com/baynezy/StubLogger/compare/1.1.1.5...1.1.2.7
 [1.1.1.5]: https://github.com/baynezy/StubLogger/compare/1.1.0.4...1.1.1.5
 [1.1.0.4]: https://github.com/baynezy/StubLogger/compare/1.0.1.3...1.1.0.4
 [1.0.1.3]: https://github.com/baynezy/StubLogger/compare/1.0.0.2...1.0.1.3

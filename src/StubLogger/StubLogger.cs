@@ -29,7 +29,7 @@ public class StubLogger<T> : ILogger<T>
     }
 
     /// <inheritdoc/>
-    public bool IsEnabled(LogLevel logLevel) => logLevel <= LoggerLogLevel;
+    public bool IsEnabled(LogLevel logLevel) => logLevel >= LoggerLogLevel;
 
     /// <inheritdoc/>
     public IDisposable? BeginScope<TState>(TState state) where TState : notnull
