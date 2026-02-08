@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Issue where IsEnabled was returning the opposite of what is should be (#67) 
+
 ## [1.1.1.5] - 2026-02-08
 
 ### Fixed

@@ -178,7 +178,7 @@ public class StubLoggerTests
 
         // assert
         isEnabled.Should()
-            .Be(expected, $"IsEnabled should be {expected} for {testLevel}");
+            .Be(expected, $"IsEnabled should be {expected} for {testLevel} when logger is set to {configureLevel}");
     }
 
     public static TheoryData<LogLevel, bool> LogLevelTrace => LogLevelExpectations(LogLevel.Trace);
@@ -194,7 +194,7 @@ public class StubLoggerTests
         var data = new TheoryData<LogLevel, bool>();
         foreach (var level in Enum.GetValues<LogLevel>())
         {
-            var expected = (int) level <= (int) expectation;
+            var expected = (int) level >= (int) expectation;
             data.Add(level, expected);
         }
 
