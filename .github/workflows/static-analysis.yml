@@ -35,14 +35,14 @@ jobs:
         with:
           fetch-depth: 0 # This disables shallow clones. This allows SonarQube to access the history of the project to perform analysis.
       - name: Cache SonarQube Cloud packages
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
       - name: Cache SonarQube Cloud scanner
         id: cache-sonar-scanner
-        uses: actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306
         with:
           path: .sonar/scanner
           key: ${{ runner.os }}-sonar-scanner
