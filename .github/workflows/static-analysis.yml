@@ -53,14 +53,21 @@ jobs:
         run: |
           mkdir -p .sonar/scanner
           dotnet tool update dotnet-sonarscanner --tool-path .sonar/scanner
-      - name: Install dotCover
+      - name: Install dotnet-coverage
         shell: bash
         run: |
-          dotnet tool install --global jetbrains.dotcover.commandlinetools --version 2025.1.5
-      - name: Build, run code coverage, and analyze
+          dotnet tool install --global dotnet-coverage
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Begin SonarCloud Analysis
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: bash
+        run: |
+          .sonar/scanner/dotnet-sonarscanner begin /k:"${{ env.PROJECT_NAME }}" /o:"${{ env.ORGANISATION }}" /d:sonar.token="${{ env.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.vscoveragexml.reportsPaths="coverage.xml"
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+      - name: Run tests and collect coverage
         shell: bash
         run: |
           filter=""
@@ -69,7 +76,12 @@ jobs:
             filter="--filter ${{ env.TEST_FILTER }}"
           fi
           
-          .sonar/scanner/dotnet-sonarscanner begin /k:"${{ env.PROJECT_NAME }}" /o:"${{ env.ORGANISATION }}" /d:sonar.token="${{ env.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.dotcover.reportsPaths=dotCover.Output.html
-          dotnet build
-          dotCover cover-dotnet --Output=dotCover.Output.html --ReportType=HTML -- test $filter
+          dotnet-coverage collect "dotnet test $filter --no-build --configuration Release" \
+            -f xml \
+            -o "coverage.xml"
+      - name: End SonarCloud Analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: bash
+        run: |
           .sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ env.SONAR_TOKEN }}"
