@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- From xunit v2 to v3 (#88)
+
 ## [2.0.1.7] - 2026-02-14
 
 ## [2.0.0.6] - 2026-02-08
