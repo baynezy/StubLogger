@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0.8] - 2026-02-24
+
+### Changed
+
+- From xunit v2 to v3 (#88)
+
 ## [2.0.1.7] - 2026-02-14
 
 ## [2.0.0.6] - 2026-02-08
@@ -63,7 +69,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bug in release workflow permissions (#14)
 
-[unreleased]: https://github.com/baynezy/StubLogger/compare/2.0.1.7...HEAD
+[unreleased]: https://github.com/baynezy/StubLogger/compare/3.0.0.8...HEAD
+[3.0.0.8]: https://github.com/baynezy/StubLogger/compare/2.0.1.7...3.0.0.8
 [2.0.1.7]: https://github.com/baynezy/StubLogger/compare/2.0.0.6...2.0.1.7
 [2.0.0.6]: https://github.com/baynezy/StubLogger/compare/1.1.2.7...2.0.0.6
 [1.1.2.7]: https://github.com/baynezy/StubLogger/compare/1.1.1.5...1.1.2.7
