@@ -1,4 +1,4 @@
-﻿name: Tag Repository
+name: Tag Repository
 on:
   workflow_run:
     workflows:
@@ -19,7 +19,7 @@ jobs:
       checkout-ref: ${{ steps.read-tag-data.outputs.checkout-ref }}
     steps:
       - name: Download Tag Data Artifact
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3
         with:
           name: tag-parameters
           run-id: ${{ github.event.workflow_run.id }}
