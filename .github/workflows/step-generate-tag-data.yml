@@ -1,4 +1,4 @@
-﻿name: Generate Tagging Parameters
+name: Generate Tagging Parameters
 on:
   workflow_call:
     inputs:
@@ -26,7 +26,7 @@ jobs:
           echo "version=$VERSION" >> tag-parameters.txt
           echo "checkout-ref=$CHECKOUT_REF" >> tag-parameters.txt
       - name: Upload Tagging Parameters Artifact
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f
         with:
           name: tag-parameters
           path: ./tag-parameters.txt
