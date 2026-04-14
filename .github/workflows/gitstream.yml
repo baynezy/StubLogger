@@ -35,7 +35,7 @@ jobs:
     name: gitStream workflow automation
     steps:
       - name: Evaluate Rules
-        uses: linear-b/gitstream-github-action@22cbb9fbaf2f28f197cd3e946bcb3e57ebc62e10 # v2
+        uses: linear-b/gitstream-github-action@2c941660634bd7bb1bd354e29ffa68f85f15948b # v2
         id: rules-engine
         with:
           full_repository: ${{ github.event.inputs.full_repository }}
