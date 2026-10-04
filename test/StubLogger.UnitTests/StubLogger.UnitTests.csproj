@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AwesomeAssertions" Version="9.4.0"/>
+        <PackageReference Include="AwesomeAssertions" Version="9.6.0"/>
         <PackageReference Include="Bogus" Version="35.6.5"/>
         <PackageReference Include="NSubstitute" Version="6.0.0"/>
         <PackageReference Include="xunit.v3" Version="4.0.1" />
