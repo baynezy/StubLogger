@@ -39,7 +39,7 @@ Task("Test")
 			NoRestore = true,
             NoBuild = true,
 			Configuration = configuration,
-            Loggers = new string[] { "junit;LogFileName=results.xml" }
+            ArgumentCustomization = args => args.Append("--report-xunit-junit --report-xunit-junit-filename results.xml")
 		});
 	});
 

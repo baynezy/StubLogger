@@ -19,7 +19,7 @@ on:
 env:
   PROJECT_NAME: 'baynezy_StubLogger'
   ORGANISATION: 'baynezy'
-  TEST_FILTER: "Category!=LocalTest"
+  TEST_FILTER: "Category=LocalTest"
 jobs:
   build:
     if: github.actor != 'dependabot[bot]' && github.event.pull_request.head.repo.full_name == github.repository
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up JDK 17
-        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c
         with:
           java-version: 17
           distribution: 'zulu'
@@ -35,14 +35,14 @@ jobs:
         with:
           fetch-depth: 0 # This disables shallow clones. This allows SonarQube to access the history of the project to perform analysis.
       - name: Cache SonarQube Cloud packages
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
       - name: Cache SonarQube Cloud scanner
         id: cache-sonar-scanner
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9
         with:
           path: .sonar/scanner
           key: ${{ runner.os }}-sonar-scanner
@@ -73,7 +73,7 @@ jobs:
           filter=""
           
           if [ "${{ env.TEST_FILTER }}" != "" ]; then
-            filter="--filter ${{ env.TEST_FILTER }}"
+            filter="--filter-not-trait ${{ env.TEST_FILTER }}"
           fi
           
           dotnet-coverage collect "dotnet test $filter --no-build --configuration Release" \
