@@ -19,7 +19,7 @@ on:
 env:
   PROJECT_NAME: 'baynezy_StubLogger'
   ORGANISATION: 'baynezy'
-  TEST_FILTER: "Category!=LocalTest"
+  TEST_FILTER: "Category=LocalTest"
 jobs:
   build:
     if: github.actor != 'dependabot[bot]' && github.event.pull_request.head.repo.full_name == github.repository
@@ -73,7 +73,7 @@ jobs:
           filter=""
           
           if [ "${{ env.TEST_FILTER }}" != "" ]; then
-            filter="--filter ${{ env.TEST_FILTER }}"
+            filter="--filter-not-trait ${{ env.TEST_FILTER }}"
           fi
           
           dotnet-coverage collect "dotnet test $filter --no-build --configuration Release" \
