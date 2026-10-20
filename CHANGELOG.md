@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.4.12] - 2026-10-20
+
 ## [3.0.3.11] - 2026-10-04
 
 ## [3.0.2.10] - 2026-09-06
@@ -79,7 +81,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Bug in release workflow permissions (#14)
 
-[unreleased]: https://github.com/baynezy/StubLogger/compare/3.0.3.11...HEAD
+[unreleased]: https://github.com/baynezy/StubLogger/compare/0.3.4.12...HEAD
+[0.3.4.12]: https://github.com/baynezy/StubLogger/compare/3.0.3.11...0.3.4.12
 [3.0.3.11]: https://github.com/baynezy/StubLogger/compare/3.0.2.10...3.0.3.11
 [3.0.2.10]: https://github.com/baynezy/StubLogger/compare/3.0.1.9...3.0.2.10
 [3.0.1.9]: https://github.com/baynezy/StubLogger/compare/3.0.0.8...3.0.1.9
