@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Replaced the changelog release action with `baynezy/ChangeLogger.Action` (#177)
+
 ## [3.0.4.13] - 2026-10-20
 
 ## [3.0.3.11] - 2026-10-04
